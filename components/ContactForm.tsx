@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from './Button';
 
@@ -9,6 +9,19 @@ export const ContactForm: React.FC = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [selectedSolution, setSelectedSolution] = useState('');
+
+  useEffect(() => {
+    // Extract solution from URL query parameters if present
+    // Using window.location for robustness in the current preview environment
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const solutionParam = params.get('solution');
+      if (solutionParam) {
+        setSelectedSolution(solutionParam);
+      }
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,6 +30,8 @@ export const ContactForm: React.FC = () => {
 
     // Mock success for preview environment
     setTimeout(() => {
+      // In a real Next.js app we'd use router.push
+      // In this environment, index.tsx mocks router.push to window.location.href
       router.push('/contact/thanks');
     }, 1000);
   };
@@ -50,7 +65,14 @@ export const ContactForm: React.FC = () => {
 
       <div>
         <label htmlFor="solution" className={labelClasses}>Solution Area *</label>
-        <select id="solution" name="solution" required className={inputClasses}>
+        <select 
+          id="solution" 
+          name="solution" 
+          required 
+          className={inputClasses}
+          value={selectedSolution}
+          onChange={(e) => setSelectedSolution(e.target.value)}
+        >
           <option value="">Select an area</option>
           <option value="ecomtech">eComTech</option>
           <option value="sectech">SecTech</option>
