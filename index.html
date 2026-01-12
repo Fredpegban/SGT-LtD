@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sellapy Global Technology (SGT) Limited | AI-Native Product Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "next": "https://esm.sh/next@^16.1.1",
+    "next/link": "https://esm.sh/next@^16.1.1/link",
+    "next/navigation": "https://esm.sh/next@^16.1.1/navigation",
+    "path": "https://esm.sh/path@^0.12.7",
+    "fs": "https://esm.sh/fs@^0.0.1-security",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "next/": "https://esm.sh/next@^16.1.1/"
+  }
+}
+</script>
+    <style>
+      @layer base {
+        :root {
+          --foreground-rgb: 2, 6, 23;
+          --background-start-rgb: 248, 250, 252;
+          --background-end-rgb: 255, 255, 255;
+        }
+      }
+
+      body {
+        color: rgb(var(--foreground-rgb));
+        background-color: #f8fafc;
+      }
+
+      .bg-mesh {
+        background-image: 
+          radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.03) 0px, transparent 50%),
+          radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.03) 0px, transparent 50%);
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .glass-card {
+        @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-sm transition-all duration-300;
+      }
+
+      .glass-card:hover {
+        @apply bg-white/90 border-indigo-200/50 shadow-xl -translate-y-1;
+      }
+
+      .premium-gradient {
+        background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      }
+
+      .text-balance {
+        text-wrap: balance;
+      }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-950 antialiased selection:bg-indigo-100 selection:text-indigo-900">
+    <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>
